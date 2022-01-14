@@ -104,7 +104,7 @@ class Timings(commands.Cog):
                 timing_cost = int(request["timingsMaster"]["system"]["timingcost"])
                 if timing_cost > 300:
                     embed_var.add_field(name="❌ Timingcost",
-                                        value=f"Your timingcost is {timing_cost}. Your cpu is overloaded and/or slow. Find a [better host](https://www.birdflop.com).")
+                                        value=f"Your timingcost is {timing_cost}. Your CPU is overloaded and/or slow. Upgrade to a better package.")
             except KeyError as key:
                 logging.info("Missing: " + str(key))
 
@@ -189,10 +189,10 @@ class Timings(commands.Cog):
                 cpu = int(request["timingsMaster"]["system"]["cpu"])
                 if cpu == 1:
                     embed_var.add_field(name="❌ Threads",
-                                        value=f"You have only {cpu} thread. Find a [better host](https://www.birdflop.com).")
+                                        value=f"You have only {cpu} thread. 4+ are recommended")
                 if cpu == 2:
                     embed_var.add_field(name="❌ Threads",
-                                        value=f"You have only {cpu} threads. Find a [better host](https://www.birdflop.com).")
+                                        value=f"You have only {cpu} threads. 4+ are recommended")
             except KeyError as key:
                 logging.info("Missing: " + str(key))
 
@@ -244,14 +244,11 @@ class Timings(commands.Cog):
                     if authors is not None and "songoda" in request["timingsMaster"]["plugins"][plugin]["authors"].casefold():
                         if plugin == "EpicHeads":
                             embed_var.add_field(name="❌ EpicHeads",
-                                                value="This plugin was made by Songoda. Songoda is sketchy. You should find an alternative such as [HeadsPlus](https://spigotmc.org/resources/headsplus-»-1-8-1-16-4.40265/) or [HeadDatabase](https://www.spigotmc.org/resources/head-database.14280/).")
+                                                value="You should find an alternative such as [HeadsPlus](https://spigotmc.org/resources/headsplus-»-1-8-1-16-4.40265/) or [HeadDatabase](https://www.spigotmc.org/resources/head-database.14280/).")
                         elif plugin == "UltimateStacker":
                             embed_var.add_field(name="❌ UltimateStacker",
                                                 value="Stacking plugins actually causes more lag. "
                                                       "Remove UltimateStacker.")
-                        else:
-                            embed_var.add_field(name="❌ " + plugin,
-                                                value="This plugin was made by Songoda. Songoda is sketchy. You should find an alternative.")
             except KeyError as key:
                 logging.info("Missing: " + str(key))
 
